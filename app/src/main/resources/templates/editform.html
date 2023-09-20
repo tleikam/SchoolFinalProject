@@ -1,0 +1,39 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Edit Dish Washer</span></title>
+    </head>
+    <body>
+        <section>
+            <form th:action="${'/cart/' + id}" method="POST" th:object="${cartitem}">
+                <div class="form-row">
+                    <div class="col form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" th:classappend="${#fields.hasErrors('name')} ? is-invalid" th:field="*{name}">
+                        <span class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col form-group">
+                        <label for="priceBig">Price</label>
+                        <input type="text" class="form-control" th:classappend="${#fields.hasErrors('priceBig')} ? is-invalid" th:field="*{priceBig}">
+                        <span class="invalid-feedback" th:if="${#fields.hasErrors('priceBig')}" th:errors="*{priceBig}">price</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col form-group">
+                        <label for="calories">Calories</label>
+                        <input type="text" class="form-control" th:classappend="${#fields.hasErrors('calories')} ? is-invalid" th:field="*{calories}">
+                        <span class="invalid-feedback" th:if="${#fields.hasErrors('calories')}" th:errors="*{calories}">calories</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+        </section>
+    </body>
+</html>

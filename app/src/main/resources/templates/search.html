@@ -1,0 +1,46 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Search Results</title>
+    </head>
+    <body>
+        <section>
+            <div th:if="${items}">
+                <p>Here are the results for your searched term: <span th:text="${text}"></span></p>
+
+                <h1 class="search-title">Search Results</h1>
+                <ul class="catalog-item">
+                    <div class="container">
+                        <li class="item-list" th:each="item: ${items}">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="card text-center" style="width: 18rem">
+                                        <div class="card-body">
+                                            <h5 class="card-title" th:text="${item.toString}"></h5>
+                                            <p class="card-text" th:text="'$' + ${item.getPrice}"></p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <h6>Available Options</h6>
+                                            <li th:each="option: ${item.options}" th:text="${option}"></li>
+                                        </ul>
+                                        <form th:action="${'/cart/'}"} method="POST">
+                                        <button type="submit" class="btn btn-primary" id="text" name="text" th:value="${item.getName}">
+                                            
+                                            Add To Cart
+                                        </button>
+                                    <!--
+                                        <button type="submit" class="btn btn-primary">
+                                            Add to Cart
+                                        </button>
+                                    -->
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </ul>   
+        </section>
+    </body>
+</html>

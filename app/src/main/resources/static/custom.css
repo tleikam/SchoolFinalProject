@@ -1,0 +1,53 @@
+ul.catalog-item > li {
+  list-style-type: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+ul.list-group > li {
+  list-style-type: none;
+}
+
+.container {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px 20px;
+}
+
+.card {
+    color: black;
+    padding: 10px;
+    min-height: 50px;
+}
+
+.btn {
+    margin: 2px;
+    padding: 2px;
+}
+
+/* From Bootstrap */
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}

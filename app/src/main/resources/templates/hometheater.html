@@ -1,0 +1,45 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Home Theater</title>
+    </head>
+    <body>
+        <section>
+            <h1 class="catalog-title">Home Theater</h1>
+                <ul class="catalog-item">
+                    <div class="container">
+                        <li class="hometheater-list" th:each="ht: ${home}">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="card text-center" style="width: 18rem">
+                                        <div class="card-body">
+                                            <h5 class="card-title" th:text="${ht.toString}"></h5>
+                                            <p class="card-text" th:text="'$' + ${ht.getPrice}"></p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <h6>Available Options</h6>
+                                            <li th:each="option: ${ht.options}" th:text="${option}"></li>
+                                        </ul>
+                                        <form th:action="${'/cart/'}"} method="POST">
+                                        <button type="submit" class="btn btn-primary" id="text" name="text" th:value="${ht.getName}">
+                                            
+                                            Add To Cart
+                                        </button>
+                                    <!--
+                                        <button type="submit" class="btn btn-primary">
+                                            Add to Cart
+                                        </button>
+                                    -->
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+
+                </ul>
+        </section>
+    </body>
+</html>
+
+BENJAMIN

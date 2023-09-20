@@ -1,0 +1,18 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Order Pick up</title>
+    </head>
+    <body>
+        <section>
+            <h2>Please enter your method of payment</h2>
+            <a class="btn btn-primary" role="button" href="/orderpickupsuccess">Pay in Store</a>
+            <h2>Pay by card</h2>
+            <input type="text" placeholder="Name on the Card">
+            <input type="number" placeholder="Enter the 16 digits on the card">
+            <input type="number" placeholder="CVV">
+            <input type="number" placeholder="Zip Code">
+            <a class="btn btn-primary" role="button" href="/orderpickupsuccess">Pay online</a>
+        </section>
+    </body>
+</html>

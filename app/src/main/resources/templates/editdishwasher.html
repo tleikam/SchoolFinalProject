@@ -1,0 +1,36 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Edit Dish Washer</title>
+    </head>
+    <body>
+        <section>
+            <h1>Edit Dish Washer</h1>
+            <form th:action="${'/cart/' + id}" method="POST">
+                <div class="form-row">
+                    <div class="col form-group">
+                        <label for="color">Choose a color</label>
+                            <select id="color" name="color">
+                                <option value="STAINLESS_STEEL">Stainless Steel</option>
+                                <option value="BLACK">Black</option>
+                                <option value="WHITE">White</option>
+                                <option value="BLUE">Blue</option>
+                            </select>
+                        
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col form-group">
+                        <input type="checkbox" class="form-check-input" id="thirdrack" name="thirdrack" th:checked="${thirdrack}">
+                        <label for="thirdrack">Third Rack</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+
+            <a class="btn btn-secondary" role="button" th:href="${'/cart/'}">Back</a>
+        </section>
+    </body>
+</html>

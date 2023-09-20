@@ -1,0 +1,44 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Cart</title>
+    </head>
+    <body>
+        <section>
+            <h1 class="cart-item-title">Cart Items</h1>
+            <form th:action="${'/cart/save'}" method="POST">
+                <button type="submit" class="btn btn-success">
+                    Save Cart
+                </button>
+            </form>
+            <ul class="cart-item">
+                <div class="container">
+                    <li class="cart-item-list" th:each="cart,iter: ${items}">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="card text-center" style="width: 18rem">
+                                    <div class="card-body">
+                                        <h5 class="card-title" th:text="${cart.toString}"></h5>
+                                        <p class="card-text" th:text="'$' + ${cart.getPrice}"></p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <h6>Available Options</h6>
+                                        <li th:each="option: ${cart.options}" th:text="${option}"></li>
+                                    </ul>
+                                    <a class="btn btn-secondary" role="button" th:href="${'/cart/' + iter.index + '/edit' + cart.getLink}">Modify</a>
+                                    <a class="btn btn-danger" role="button" th:href="${'/cart/' + iter.index + '/delete'}">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+            <div class="price-details" >
+                <h6 th:text="'Subtotal: $' + ${order.getSubTotal}"></h6>
+                <h6 th:text="'Tax: $' + ${order.getTotalTax}"></h6>
+                <h6 th:text="'Total: $' + ${order.getTotalCost}"></h6>
+            </div>
+            <a class="btn btn-success" role="button" href="/checkout">Checkout</a>
+        </section>
+    </body>
+</html>

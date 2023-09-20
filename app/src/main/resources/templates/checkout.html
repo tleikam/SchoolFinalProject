@@ -1,0 +1,18 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Checkout</title>
+    </head>
+    <body>
+        <section>
+            <h1 class="catalog-title">Check Out</h1>
+            <a class="btn btn-primary" role="button" href="/orderpickup/">Pick Up</a>
+            <a class="btn btn-primary" role="button" href="/delivery">Delivery</a>
+            <div class="price-details" >
+                <h6 th:text="'Subtotal: $' + ${order.getSubTotal}"></h6>
+                <h6 th:text="'Tax: $' + ${order.getTotalTax}"></h6>
+                <h6 th:text="'Total: $' + ${order.getTotalCost}"></h6>
+            </div>
+        </section>
+    </body>
+</html>

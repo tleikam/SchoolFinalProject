@@ -1,0 +1,50 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Appliances</title>
+    </head>
+    <body>
+        <section>
+            <h1 class="catalog-title">Appliances</h1>
+            <p>All appliances come in a variety of finishes, Including:</p>
+            <ul>
+                <li>Black</li>
+                <li>White</li>
+                <li>Stainless Steel</li>
+                <li>Blue</li>
+            </ul>
+                <ul class="catalog-item">
+                    <div class="container">
+                        <li class="appliance-list" th:each="appliance: ${appliances}">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="card text-center" style="width: 18rem">
+                                        <div class="card-body">
+                                            <h5 class="card-title" th:text="${appliance.toString}"></h5>
+                                            <p class="card-text" th:text="'$' + ${appliance.getPrice}"></p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <h6>Available Options</h6>
+                                            <li th:each="option: ${appliance.options}" th:text="${option}"></li>
+                                        </ul>
+                                        <form th:action="${'/cart/'}"} method="POST">
+                                        <button type="submit" class="btn btn-primary" id="text" name="text" th:value="${appliance.getName}">
+                                            
+                                            Add To Cart
+                                        </button>
+                                    <!--
+                                        <button type="submit" class="btn btn-primary">
+                                            Add to Cart
+                                        </button>
+                                    -->
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </ul>
+        </section>
+    </body>
+</html>

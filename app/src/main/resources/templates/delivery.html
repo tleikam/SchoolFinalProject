@@ -1,0 +1,22 @@
+<!doctype html>
+<html th:replace="~{layout :: layout(~{::title}, ~{::section})}">
+    <head>
+        <title>Delivery</title>
+    </head>
+    <body>
+        <section>
+            <h2>Please Enter your Address</h2>
+            <input type="text" placeholder="Address">
+            <input type="text" placeholder="Apt. #">
+            <input type="text" placeholder="City">
+            <input type="text" placeholder="State">
+            <input type="number" placeholder="Zip Code">
+            <h2>Card Information</h2>
+            <input type="text" placeholder="Name on the Card">
+            <input type="number" placeholder="Enter the 16 digits on the card">
+            <input type="number" placeholder="CVV">
+            <input type="number" placeholder="Zip Code">
+            <a class="btn btn-primary" role="button" href="/deliverysuccess">Pay online</a>
+        </section>
+    </body>
+</html>
